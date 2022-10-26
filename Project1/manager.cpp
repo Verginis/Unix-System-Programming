@@ -113,7 +113,8 @@ int main(int argc, char** argv){
         strcpy(filename, return_filename(filename));
         //cout << "filename tok " << filename  << endl;
         sprintf(path_file, "%s%s%s",dirname,slash,filename);
-        
+
+        //check if there is a worker who is not working
         winfo = wlist.get_free_worker();
         if(winfo == NULL){
 

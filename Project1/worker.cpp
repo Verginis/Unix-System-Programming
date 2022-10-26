@@ -40,40 +40,42 @@ int main(int argc, char** argv){
         
     }
 
-    cout << "fifo worker"<< fifo_name <<endl;
+    //cout << "fifo worker"<< fifo_name <<endl;
     fifo_fd = open(fifo_name, O_RDONLY);
     
     while (true)
     {
         rsize = read(fifo_fd, filename, SIZE);
-        cout << "worker file = " << filename <<endl;
+        //cout << "worker file = " << filename <<endl;
 
-
+        //find the size of the file
         long int res = findSize(filename);
 
-        cout << "worker res " << res <<endl;
+        //cout << "worker res " << res <<endl;
 
         char* buffer = new char[res];
 
-
+        //open file
         FILE* fp = fopen(filename, "r");
 
+        //copy the file into the buffer
         size_t newLen = fread(buffer, sizeof(char), res, fp);
 
-
-
-
+        //vector that we put the urls
         vector < char* > urls;
 
+        //in the code below we cut every single word of the buffer and then we check if is starting
+        //with http://www. or http:// and we keep only the domain accordingly e.g.(from http://www.home.pl/airport to home.pl/airport)
         token = strtok(buffer, " ");
         
-        /* walk through other tokens */
+        // walk through other tokens 
         while( token != NULL ) {
             if(token2 = strstr(token, "http://www.")){
-
-                urls.push_back(token2 + 11);
+                //put the url in the vector
+                urls.push_back(token2 + 11); 
                 
             }else if(token2 = strstr(token, "http://")){
+                //put the url in the vector
                 urls.push_back(token2 + 7);
             }
             
@@ -81,6 +83,7 @@ int main(int argc, char** argv){
             
         }
 
+        //keep only the domain name of the url e.g.(from home.pl/airport to home.pl)
         for( int i=0; i < urls.size(); i++){
             urls.at(i) = strtok(urls.at(i), "/");
             //cout<< urls.at(i)<<endl;
