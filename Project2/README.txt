@@ -107,15 +107,3 @@ void signal_handler(int sig)
 
 
 
-
-Πηγές:
-#######
-1. Διαφάνειες Μαθήματος (open dir, read dir, threads, sockets,bounded buffer problem, κ.α.)
-2. Βιβλίο (από το Βιβλίο διάβασα για τα bind, listen, accept, connect, καθώς και πήρα μια βοήθεια 
-για την υλοποίηση των συναρτήσεων read_all και write_all)
-3. http://nion.modprobe.de/blog/archives/357-Recursive-directory-creation.html (βοήθεια για την συνάρτηση mkdir_recursive(string dir, bool filename_postfix = true))
-4. https://docs.microsoft.com/en-us/windows/win32/winsock/sockaddr-2
-5. https://linux.die.net/man/2/stat
-6. http://www.cs.kent.edu/~ruttan/sysprog/lectures/multi-thread/pthread_cond_init.html
-7. https://pubs.opengroup.org/onlinepubs/007904975/functions/pthread_cond_broadcast.html
-8. https://man7.org/linux/man-pages/man3/pthread_mutex_lock.3p.html
